@@ -172,7 +172,7 @@ class PicoDHT22:
         
 if __name__ == "__main__":
     from machine import Pin
-    from PicoDHT22 import PicoDHT22
+    #from PicoDHT22 import PicoDHT22
     import utime
     dht_data = Pin(2,Pin.IN,Pin.PULL_UP)
     led = Pin(25, Pin.OUT)
