@@ -174,7 +174,8 @@ if __name__ == "__main__":
     from machine import Pin
     from PicoDHT22 import PicoDHT22
     import utime
-    dht_data = Pin(15,Pin.IN,Pin.PULL_UP)
+    dht_data = Pin(2,Pin.IN,Pin.PULL_UP)
+    led = Pin(25, Pin.OUT)
     dht_sensor=PicoDHT22(dht_data,Pin(14,Pin.OUT),dht11=False)
     while True:
         T,H = dht_sensor.read()
@@ -183,5 +184,15 @@ if __name__ == "__main__":
         else:
             print("{:3.1f}'C  {:3.1f}%".format(T,H))
         #DHT22 not responsive if delay to short
-        utime.sleep_ms(500)
+        led.high() #acende o LED   
+        utime.sleep_ms(250)
+        led.low() #acende o LED
+        utime.sleep_ms(250)
         
+        
+###pinout pico
+#https://www.raspberrypi.com/documentation/microcontrollers/raspberry-pi-pico.html
+
+###adicionando firmware pelo Thonny
+#https://projects.raspberrypi.org/en/projects/getting-started-with-the-pico/3
+#https://www.robocore.net/tutoriais/programacao-raspberry-pi-pico-python 
